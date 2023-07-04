@@ -29,7 +29,7 @@ pipeline {
                 script{
                         dir("terraform"){
                                 // Get some code from a GitHub repository
-                                git url: 'https://github.com/seeit99/JupyterPOC.git', branch: 'main', credentialsId: 'github_creds'
+                                git url: 'https://github.com/abdulkhadar-Capgemini/JupyterLab.git', branch: 'main', credentialsId: 'github_creds'
                                
                         }
                     
@@ -37,7 +37,6 @@ pipeline {
             }
         } 
         stage('Plan') { 
-            when { changeset "trigger.yml"}
             steps {
                 bat 'terraform init'
                 bat 'terraform plan'
@@ -46,7 +45,7 @@ pipeline {
         stage('Apply') {
             when { 
                 allOf {
-                   changeset "trigger.yml"
+                   changeset "trigger*"
                 }
            }
             
@@ -58,7 +57,7 @@ pipeline {
          stage('Destroy') {
             when {
                 allOf {
-                  changeset "delete.yml"
+                  changeset "delete*"
                 }
             }
         
