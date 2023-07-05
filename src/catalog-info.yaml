@@ -2,8 +2,8 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: JupyterLab
-  description: JupyterLab
+  name: DSPDemo-JupyterLab
+  description: DSPDemo-JupyterLab
   annotations:
     github.com/project-slug: abdulkhadar-Capgemini/JupyterLab
     jenkins.io/job-full-name: Jupiter-pipeline
