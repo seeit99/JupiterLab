@@ -1,5 +1,5 @@
 def readTrigerFile(String eventType) {
-    def fileContent = readFile file "${WORKSPACE}\trigger.yml"
+    def fileContent = readFile file "${WORKSPACE}\src\trigger.yml"
     println fileContent
 }
  
@@ -29,7 +29,7 @@ pipeline {
                 script{
                         dir("terraform"){
                                 // Get some code from a GitHub repository
-                                git url: 'https://github.com/seeit99/JupiterLab/src.git', branch: 'main', credentialsId: 'github_creds'
+                                git url: 'https://github.com/seeit99/JupiterLab.git', branch: 'main', credentialsId: 'github_creds'
                                
                         }
                     
